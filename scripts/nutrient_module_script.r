@@ -13,27 +13,41 @@
 
 nutrient_model <- function(total_p, total_n) {
   
-  if (total_p < 0.01 && total_n < 0.35) {
+  # Calculate means
+  mean_p <- mean(total_p)
+  mean_n <- mean(total_n)
+  
+  # Classification
+  if (mean_p < 0.01 && mean_n < 0.35) {
+    
     nutrient_class <- "Oligotrophic"
     
-  } else if (total_p >= 0.01 && total_p <= 0.03 &&
-             total_n >= 0.36 && total_n <= 0.65) {
+  } else if (mean_p >= 0.01 && mean_p <= 0.03 &&
+             mean_n >= 0.36 && mean_n <= 0.65) {
+    
     nutrient_class <- "Mesotrophic"
     
-  } else if (total_p > 0.03 && total_p <= 0.10 &&
-             total_n > 0.65 && total_n <= 1.20) {
+  } else if (mean_p > 0.03 && mean_p <= 0.10 &&
+             mean_n > 0.65 && mean_n <= 1.20) {
+    
     nutrient_class <- "Eutrophic"
     
-  } else if (total_p > 0.10 || total_n > 1.20) {
+  } else if (mean_p > 0.10 || mean_n > 1.20) {
+    
     nutrient_class <- "Hypereutrophic"
     
   } else {
-    nutrient_class <- "Mixed or unclear nutrient condition"
+    
+    nutrient_class <- "Mixed Condition"
   }
   
-  return(nutrient_class)
+  # Return results
+  return(list(
+    Mean_Phosphorus = mean_p,
+    Mean_Nitrogen = mean_n,
+    Nutrient_Class = nutrient_class
+  ))
 }
-
 
 
 
