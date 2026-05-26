@@ -1,0 +1,73 @@
+---
+title: "Lake Eutrophication and Water Quality Classification Model"
+author: "Lauren Chetley & Emma Rodriguez"
+format: html
+editor: visual
+---
+
+## Contract
+
+### Parameters
+
+#### Temperature 
+
+Temperature Module: surface water temperature (swt), seasonal time (temp.time)
+
+Temperature Classification:
+
+-   Cool
+
+-   Mild
+
+-   Average
+
+-   Warm
+
+-   Hot
+
+#### Nutrient 
+
+Nutrient Module: nitrogen (n.input), phosphorus (p.input), seasonal time (nutrient.time)
+
+Productivity Risk Classification
+
+-   Oligotrophic
+
+-   Mesotrophic
+
+-   Eutrophic
+
+-   Hypereutrophic
+
+#### Dissolved Oxygen 
+
+Dissolved Oxygen Module: dissolved oxygen (diss.oxy), seasonal time (diss.oxy.time)
+
+-   Excellent
+
+-   Moderate
+
+-   Stressful
+
+-   Hypoxic
+
+### Inputs & Outputs 
+
+Inputs: surface water temperature, temperature seasonal time, nitrogen, phosphorus, nutrient seasonal time, dissolved oxygen, dissolved oxygen seasonal time
+
+Outputs: Water Quality Model
+
+-   Low Risk - Oligotrophic, excellent, cool
+
+-   Moderate Risk - Mesotrophic, moderate, mild
+
+-   High Risk - Eutrophic, stressful, warm
+
+-   Extreme Risk - Hypereutrophic, hypoxic, hot
+
+### Flow Chart / Diagram 
+
+```{r}
+
+
+```
