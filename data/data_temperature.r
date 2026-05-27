@@ -14,7 +14,7 @@ temperature_data <- data.frame(
   date = dates,
   
   temp_c = c(
-    runif(31, 16, 20),  # October: mild
+    runif(31, 8, 12),   # October: cool
     runif(30, 12, 14),  # November: cool
     runif(31, 9, 12),   # December: cool
     

@@ -27,9 +27,13 @@ dissoxygen_function <- function(dissoxygendata) {
   
   # calculate the monthly means 
   monthly_means <- dissoxygendata |>
+    mutate(month = format(as.Date(date), "%B")) |>
     mutate(month = factor(month, levels = water_year_order)) |>
     group_by(month) |>
-    summarise(mean_dissoxygen = round(mean(do_mg_l, na.rm = TRUE), 2))
+    summarise(
+      mean_dissoxygen = round(mean(do_mg_l, na.rm = TRUE), 2),
+      .groups = "drop"
+    )
   
   # classify dissolved oxygen
   monthly_means <- monthly_means |>
@@ -42,6 +46,5 @@ dissoxygen_function <- function(dissoxygendata) {
   
   return(monthly_means)
 }
-
 
 

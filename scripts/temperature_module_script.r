@@ -6,12 +6,13 @@
 #
 # ---- Input:---- 
 #    A dataframe containing:
-#   - month
-#   - surface water temperatures (C)
+#   - date
+#   - temp_c
 #
 #----- Outputs: ----
 #   A dataframe containing:
 #   - monthly mean surface water temperatures
+#   - temperature classification
 
 # Possible Classifications:
 #   "Cool"         = Below Average
@@ -21,15 +22,19 @@
 
 # classification water temperature
 temperature_function <- function(data) {
+  
   water_year_order <- c("October", "November", "December",
                         "January", "February", "March",
                         "April", "May", "June",
                         "July", "August", "September")
+  
   monthly_means <- data |>
+    mutate(month = format(as.Date(date), "%B")) |>
     mutate(month = factor(month, levels = water_year_order)) |>
     group_by(month) |>
-    summarise(mean_temp_c = round(mean(surface_temp_c, na.rm = TRUE), 2)) |>
+    summarise(mean_temp_c = round(mean(temp_c, na.rm = TRUE), 2)) |>
     arrange(month)
+  
   monthly_means <- monthly_means |>
     mutate(
       classification = sapply(mean_temp_c, function(mean_temp_c) {
