@@ -1,5 +1,4 @@
-#Data Script for Nutrient Module 
-# Create fake daily nutrient data
+# Data Script for Nutrient Module 
 
 set.seed(123)
 
@@ -10,24 +9,49 @@ dates <- seq.Date(
   length.out = 365
 )
 
-# Create nutrient data based on seasonal patterns
+# Create nutrient data based on monthly seasonal patterns
 nutrient_data <- data.frame(
   date = dates,
   
   phosphorus_added = c(
-    runif(92, 0.03, 0.10),  # Oct-Dec rainy season
-    runif(90, 0.06, 0.14),  # Jan-Mar heavy runoff
-    runif(91, 0.04, 0.12),  # Apr-Jun agriculture season
-    runif(92, 0.005, 0.03)  # Jul-Sep dry season
+    runif(31, 0.001, 0.004), # October: oligotrophic
+    runif(30, 0.015, 0.025), # November: mesotrophic
+    runif(31, 0.040, 0.080), # December: eutrophic
+    
+    runif(31, 0.040, 0.080), # January: eutrophic
+    runif(28, 0.015, 0.025), # February: mesotrophic
+    runif(31, 0.110, 0.140), # March: hypereutrophic
+    
+    runif(30, 0.040, 0.080), # April: eutrophic
+    runif(31, 0.040, 0.080), # May: eutrophic
+    runif(30, 0.040, 0.080), # June: eutrophic
+    
+    runif(31, 0.001, 0.004), # July: oligotrophic
+    runif(31, 0.110, 0.140), # August: hypereutrophic
+    runif(30, 0.015, 0.025)  # September: mesotrophic
   ),
   
   nitrogen_added = c(
-    runif(92, 0.65, 1.20),
-    runif(90, 0.90, 1.50),
-    runif(91, 0.70, 1.40),
-    runif(92, 0.20, 0.65)
+    runif(31, 0.10, 0.30),   # October: oligotrophic
+    runif(30, 0.40, 0.60),   # November: mesotrophic
+    runif(31, 0.80, 1.10),   # December: eutrophic
+    
+    runif(31, 0.80, 1.10),   # January: eutrophic
+    runif(28, 0.40, 0.60),   # February: mesotrophic
+    runif(31, 1.30, 1.50),   # March: hypereutrophic
+    
+    runif(30, 0.80, 1.10),   # April: eutrophic
+    runif(31, 0.80, 1.10),   # May: eutrophic
+    runif(30, 0.80, 1.10),   # June: eutrophic
+    
+    runif(31, 0.10, 0.30),   # July: oligotrophic
+    runif(31, 1.30, 1.50),   # August: hypereutrophic
+    runif(30, 0.40, 0.60)    # September: mesotrophic
   )
 )
+
+# Add month column
+nutrient_data$month <- format(nutrient_data$date, "%B")
 
 # View first rows
 head(nutrient_data)

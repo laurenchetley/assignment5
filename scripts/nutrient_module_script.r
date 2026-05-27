@@ -8,12 +8,13 @@
 # ---- Inputs: ----
 # nutrientdata:
 #   A dataframe containing:
-#   - month
+#   - date
 #   - phosphorus_added (mg/L)
 #   - nitrogen_added (mg/L)
 #
 # ---- Output: ----
 # A dataframe containing:
+#   - month
 #   - monthly mean phosphorus concentrations
 #   - monthly mean nitrogen concentrations
 #   - nutrient productivity classification
@@ -36,11 +37,13 @@ nutrient_function <- function(nutrientdata) {
   
   # calculate monthly means
   monthly_means <- nutrientdata |>
+    mutate(month = format(as.Date(date), "%B")) |>
     mutate(month = factor(month, levels = water_year_order)) |>
     group_by(month) |>
     summarise(
       mean_phosphorus = round(mean(phosphorus_added, na.rm = TRUE), 2),
-      mean_nitrogen = round(mean(nitrogen_added, na.rm = TRUE), 2)
+      mean_nitrogen = round(mean(nitrogen_added, na.rm = TRUE), 2),
+      .groups = "drop"
     )
   
   # classify nutrient conditions

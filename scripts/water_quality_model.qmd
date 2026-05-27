@@ -106,9 +106,9 @@ library(tidyverse)
 library(here)
 
 # load in the model functions
-source(here("scripts", "nutrient_model.R"))
-source(here("scripts", "dissoxygen_model.R"))
-source(here("scripts", "temperature_model.R"))
+source(here("scripts", "nutrient_module_script.R"))
+source(here("scripts", "dissoxygen_module_script.R"))
+source(here("scripts", "temperature_module_script.R"))
 
 # load in the data
 nutrientdata <- read.csv(here("data", "nutrient_data.csv"))
@@ -116,53 +116,56 @@ dissoxygendata <- read.csv(here("data", "dissoxygen_data.csv"))
 temperaturedata <- read.csv(here("data", "temperature_data.csv"))
 
 # run each model
-nutrient_results <- nutrient_model(nutrientdata)
-dissoxygen_results <- dissoxygen_model(dissoxygendata)
-temperature_results <- temperature_model(temperaturedata)
+nutrient_results <- nutrient_function(nutrientdata)
+dissoxygen_results <- dissoxygen_function(dissoxygendata)
+temperature_results <- temperature_function(temperaturedata)
 
 # combine model outputs by month
 water_quality_data <- nutrient_results |>
   select(month, nutrient_class = classification) |>
   left_join(
-    dissoxygen_results |> select(month, dissoxygen_class = classification),
+    dissoxygen_results |>
+      select(month, dissoxygen_class = classification),
     by = "month"
   ) |>
   left_join(
-    temperature_results |> select(month, temperature_class = classification),
+    temperature_results |>
+      select(month, temperature_class = classification),
     by = "month"
   )
 
-# final water quality classification
-water_quality_model <- function(nutrient_class, dissoxygen_class, temperature_class) {
+# final water quality classification function
+water_quality_model <- function(nutrient_class,
+                                dissoxygen_class,
+                                temperature_class) {
   
-  if (nutrient_class == "Oligotrophic" &&
-      dissoxygen_class == "Excellent" &&
-      temperature_class == "Cool") {
-    final_class <- "Low Risk"
+  if (nutrient_class == "Hypereutrophic" ||
+      dissoxygen_class == "Hypoxic" ||
+      temperature_class == "Hot - Boiling") {
     
-  } else if (nutrient_class == "Mesotrophic" &&
-             dissoxygen_class == "Moderate" &&
-             temperature_class == "Mild") {
-    final_class <- "Moderate Risk"
-    
-  } else if (nutrient_class == "Eutrophic" &&
-             dissoxygen_class == "Stressful" &&
-             temperature_class == "Warm") {
-    final_class <- "High Risk"
-    
-  } else if (nutrient_class == "Hypereutrophic" ||
-             dissoxygen_class == "Hypoxic" ||
-             temperature_class == "Hot") {
     final_class <- "Extreme Risk"
     
+  } else if (nutrient_class == "Eutrophic" ||
+             dissoxygen_class == "Stressful" ||
+             temperature_class == "Warm - Above Average") {
+    
+    final_class <- "High Risk"
+    
+  } else if (nutrient_class == "Mesotrophic" ||
+             dissoxygen_class == "Moderate" ||
+             temperature_class == "Mild - Average") {
+    
+    final_class <- "Moderate Risk"
+    
   } else {
-    final_class <- "Mixed Risk"
+    
+    final_class <- "Low Risk"
   }
   
   return(final_class)
 }
 
-# apply final function to each month
+# apply final model
 water_quality_results <- water_quality_data |>
   mutate(
     final_water_quality = mapply(
@@ -181,4 +184,110 @@ print(water_quality_results)
 
 ```{r}
 
+# Water Quality Visualization Script
+
+library(tidyverse)
+library(here)
+
+# -------------------------------------------------------------------
+# Plot 1: Monthly Final Water Quality Classification
+#
+# This figure displays the overall monthly lake water quality risk
+# classification produced by the integrated water quality model.
+# -------------------------------------------------------------------
+
+wqm_classification_bargraph <- ggplot(water_quality_results,
+       aes(x = month,
+           y = final_water_quality,
+           fill = final_water_quality)) +
+  geom_col(color = "black", width = 0.7) +
+  labs(
+    title = "Monthly Final Water Quality Classification",
+    x = "Month",
+    y = "Water Quality Risk Classification",
+    fill = "Risk Level"
+  ) +
+  scale_fill_manual(values = c(
+    "Low Risk" = "#66c2a5",
+    "Moderate Risk" = "#ffd166",
+    "High Risk" = "#f4a261",
+    "Extreme Risk" = "#d62828"
+  )) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(face = "bold")
+  )
+
+wqm_classification_bargraph
+
+```
+
+```{r}
+
+# -------------------------------------------------------------------
+# Plot 2: Monthly Environmental Conditions by Module
+#
+# This figure displays the monthly mean phosphorus, nitrogen,
+# dissolved oxygen, and temperature values used in the lake
+# water quality model. The plot highlights seasonal environmental
+# patterns across the water year.
+# -------------------------------------------------------------------
+
+# Combine monthly model outputs
+visual_data <- nutrient_results |>
+  select(month,
+         mean_phosphorus,
+         mean_nitrogen) |>
+  left_join(
+    dissoxygen_results |>
+      select(month, mean_dissoxygen),
+    by = "month"
+  ) |>
+  left_join(
+    temperature_results |>
+      select(month, mean_temp_c),
+    by = "month"
+  )
+
+# Convert to long format for plotting
+visual_data_long <- visual_data |>
+  pivot_longer(
+    cols = c(mean_phosphorus,
+             mean_nitrogen,
+             mean_dissoxygen,
+             mean_temp_c),
+    names_to = "variable",
+    values_to = "value"
+  )
+
+# Create visualization
+monthly_conditions_linegraph <- ggplot(visual_data_long,
+       aes(x = month,
+           y = value,
+           color = variable,
+           group = variable)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 3) +
+  labs(
+    title = "Monthly Environmental Conditions",
+    x = "Month",
+    y = "Mean Monthly Value",
+    color = "Environmental Variable"
+  ) +
+  scale_color_manual(values = c(
+    "mean_phosphorus" = "darkorange",
+    "mean_nitrogen" = "forestgreen",
+    "mean_dissoxygen" = "steelblue",
+    "mean_temp_c" = "firebrick"
+  )) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+monthly_conditions_linegraph
 ```
