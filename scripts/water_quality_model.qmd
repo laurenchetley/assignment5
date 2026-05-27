@@ -9,7 +9,7 @@ editor: visual
 
 ### Parameters
 
-#### Temperature 
+#### Temperature
 
 Temperature Module: surface water temperature (swt), seasonal time (temp.time)
 
@@ -25,7 +25,7 @@ Temperature Classification:
 
 -   Hot
 
-#### Nutrient 
+#### Nutrient
 
 Nutrient Module: nitrogen (n.input), phosphorus (p.input), seasonal time (nutrient.time)
 
@@ -39,7 +39,7 @@ Productivity Risk Classification
 
 -   Hypereutrophic
 
-#### Dissolved Oxygen 
+#### Dissolved Oxygen
 
 Dissolved Oxygen Module: dissolved oxygen (diss.oxy), seasonal time (diss.oxy.time)
 
@@ -51,7 +51,7 @@ Dissolved Oxygen Module: dissolved oxygen (diss.oxy), seasonal time (diss.oxy.ti
 
 -   Hypoxic
 
-### Inputs & Outputs 
+### Inputs & Outputs
 
 Inputs: surface water temperature, temperature seasonal time, nitrogen, phosphorus, nutrient seasonal time, dissolved oxygen, dissolved oxygen seasonal time
 
@@ -65,9 +65,96 @@ Outputs: Water Quality Model
 
 -   Extreme Risk - Hypereutrophic, hypoxic, hot
 
-### Flow Chart / Diagram 
+### Flow Chart / Diagram
 
 ```{r}
 
+
+```
+
+## Final Water Quality Model
+
+```{r}
+# Script for Final Water Quality Model
+
+# loading libraries
+library(tidyverse)
+library(here)
+
+# load in the model functions
+source(here("scripts", "nutrient_model.R"))
+source(here("scripts", "dissoxygen_model.R"))
+source(here("scripts", "temperature_model.R"))
+
+# load in the data
+nutrientdata <- read.csv(here("data", "nutrient_data.csv"))
+dissoxygendata <- read.csv(here("data", "dissoxygen_data.csv"))
+temperaturedata <- read.csv(here("data", "temperature_data.csv"))
+
+# run each model
+nutrient_results <- nutrient_model(nutrientdata)
+dissoxygen_results <- dissoxygen_model(dissoxygendata)
+temperature_results <- temperature_model(temperaturedata)
+
+# combine model outputs by month
+water_quality_data <- nutrient_results |>
+  select(month, nutrient_class = classification) |>
+  left_join(
+    dissoxygen_results |> select(month, dissoxygen_class = classification),
+    by = "month"
+  ) |>
+  left_join(
+    temperature_results |> select(month, temperature_class = classification),
+    by = "month"
+  )
+
+# final water quality classification
+water_quality_model <- function(nutrient_class, dissoxygen_class, temperature_class) {
+  
+  if (nutrient_class == "Oligotrophic" &&
+      dissoxygen_class == "Excellent" &&
+      temperature_class == "Cool") {
+    final_class <- "Low Risk"
+    
+  } else if (nutrient_class == "Mesotrophic" &&
+             dissoxygen_class == "Moderate" &&
+             temperature_class == "Mild") {
+    final_class <- "Moderate Risk"
+    
+  } else if (nutrient_class == "Eutrophic" &&
+             dissoxygen_class == "Stressful" &&
+             temperature_class == "Warm") {
+    final_class <- "High Risk"
+    
+  } else if (nutrient_class == "Hypereutrophic" ||
+             dissoxygen_class == "Hypoxic" ||
+             temperature_class == "Hot") {
+    final_class <- "Extreme Risk"
+    
+  } else {
+    final_class <- "Mixed Risk"
+  }
+  
+  return(final_class)
+}
+
+# apply final function to each month
+water_quality_results <- water_quality_data |>
+  mutate(
+    final_water_quality = mapply(
+      water_quality_model,
+      nutrient_class,
+      dissoxygen_class,
+      temperature_class
+    )
+  )
+
+# show final results
+print(water_quality_results)
+```
+
+# Water Quality Visualization Module
+
+```{r}
 
 ```
