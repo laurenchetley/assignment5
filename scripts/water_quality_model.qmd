@@ -22,19 +22,19 @@ format:
 editor: visual
 ---
 
-## Water Quality Contract
+## Lake Water Quality Contract
 
 ### Modules Parameters
 
 #### Nutrients (Phosphorus and Nitrogen) Module
 
-Input: Daily phosphorus and nitrogen nutrient inputs (mg/L)
+Input: Daily lake phosphorus and nitrogen nutrient inputs (mg/L)
 
 -   Processing: Daily values aggregated to monthly means by water year (October - September)
 
 -   Function: nutrient_function
 
-Output: Total Productivity Risk Classifications:
+Output: Total Lake Productivity Risk Classifications:
 
 Phosphorus = P and Nitrogen = N
 
@@ -50,13 +50,13 @@ Phosphorus = P and Nitrogen = N
 
 #### Dissolved Oxygen Module
 
-Input: Daily dissolved oxygen levels (mg/L)
+Input: Daily lake dissolved oxygen levels (mg/L)
 
 -   Processing: Daily values aggregated to monthly means by water year (October - September)
 
 -   Function: dissoxygen_function
 
-Output: Mean Dissolved Oxygen (DO) Classifications:
+Output: Mean Lake Dissolved Oxygen (DO) Classifications:
 
 -   Excellent DO: \> 8 mg/L
 
@@ -68,13 +68,13 @@ Output: Mean Dissolved Oxygen (DO) Classifications:
 
 #### Surface Water Temperature Module
 
-Input: Daily surface water temperature (ºC)
+Input: Daily lake surface water temperature (ºC)
 
 -   Processing: Daily values aggregated to monthly means by water year (October - September)
 
 -   Function: temperature_function
 
-Output: Mean Temperature Classifications:
+Output: Mean Lake Temperature Classifications:
 
 -   Cool: Below Average \<13ºC
 
@@ -84,7 +84,7 @@ Output: Mean Temperature Classifications:
 
 -   Hot: Boiling \>30ºC
 
-### Water Quality Module Parameters
+### Lake Water Quality Module Parameters
 
 Inputs: Total productivity (mg/L ), mean dissolved oxygen (mg/L ), and mean surface water temperature (ºC)
 
@@ -111,7 +111,7 @@ Outputs: water_quality_model - Monthly water quality risk classifications
 
 ```
 
-## Final Water Quality Model
+## Final Lake Water Quality Model
 
 ```{r}
 # Script for Final Water Quality Model
@@ -195,7 +195,7 @@ water_quality_results <- water_quality_data |>
 print(water_quality_results)
 ```
 
-# Water Quality Visualization Module
+## Lake Water Quality Visualization Module
 
 ```{r}
 
@@ -232,7 +232,7 @@ wqm_classification_bargraph <- ggplot(
 ) +
   geom_col(color = "black", width = 0.7) +
   labs(
-    title = "Monthly Final Water Quality Classification By Water Year",
+    title = "Monthly Final Lake Water Quality Classification By Water Year",
     x = "Month",
     y = "Water Quality Risk Classification",
     fill = "Risk Level"
@@ -302,7 +302,7 @@ monthly_conditions_linegraph <- ggplot(visual_data_long,
   geom_line(size = 1.2) +
   geom_point(size = 3) +
   labs(
-    title = "Monthly Environmental Conditions By Water Year",
+    title = "Monthly Lake Environmental Conditions By Water Year",
     x = "Month",
     y = "Mean Monthly Value",
     color = "Environmental Variable"
