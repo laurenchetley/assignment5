@@ -203,7 +203,6 @@ print(water_quality_results)
 
 library(tidyverse)
 library(here)
-
 # -------------------------------------------------------------------
 # Plot 1: Monthly Final Water Quality Classification
 #
@@ -211,10 +210,26 @@ library(here)
 # classification produced by the integrated water quality model.
 # -------------------------------------------------------------------
 
-wqm_classification_bargraph <- ggplot(water_quality_results,
-       aes(x = month,
-           y = final_water_quality,
-           fill = final_water_quality)) +
+# Set factor order for water quality classifications
+water_quality_results$final_water_quality <- factor(
+  water_quality_results$final_water_quality,
+  levels = c(
+    "Low Risk",
+    "Moderate Risk",
+    "High Risk",
+    "Extreme Risk"
+  )
+)
+
+# Create visualization
+wqm_classification_bargraph <- ggplot(
+  water_quality_results,
+  aes(
+    x = month,
+    y = final_water_quality,
+    fill = final_water_quality
+  )
+) +
   geom_col(color = "black", width = 0.7) +
   labs(
     title = "Monthly Final Water Quality Classification By Water Year",
@@ -236,8 +251,8 @@ wqm_classification_bargraph <- ggplot(water_quality_results,
     legend.title = element_text(face = "bold")
   )
 
-wqm_classification_bargraph
 
+wqm_classification_bargraph
 ```
 
 ```{r}

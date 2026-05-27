@@ -16,11 +16,11 @@ nutrient_data <- data.frame(
   phosphorus_added = c(
     runif(31, 0.001, 0.004), # October: oligotrophic
     runif(30, 0.015, 0.025), # November: mesotrophic
-    runif(31, 0.040, 0.080), # December: eutrophic
+    runif(31, 0.001, 0.004), # December: oligotrophic
     
-    runif(31, 0.040, 0.080), # January: eutrophic
+    runif(31, 0.001, 0.004), # January: oligotrophic
     runif(28, 0.015, 0.025), # February: mesotrophic
-    runif(31, 0.110, 0.140), # March: hypereutrophic
+    runif(31, 0.015, 0.025), # March: mesotrophic
     
     runif(30, 0.040, 0.080), # April: eutrophic
     runif(31, 0.040, 0.080), # May: eutrophic
@@ -34,11 +34,11 @@ nutrient_data <- data.frame(
   nitrogen_added = c(
     runif(31, 0.10, 0.30),   # October: oligotrophic
     runif(30, 0.40, 0.60),   # November: mesotrophic
-    runif(31, 0.80, 1.10),   # December: eutrophic
+    runif(31, 0.10, 0.30),   # December: oligotrophic
     
-    runif(31, 0.80, 1.10),   # January: eutrophic
+    runif(31, 0.10, 0.30),   # January: oligotrophic
     runif(28, 0.40, 0.60),   # February: mesotrophic
-    runif(31, 1.30, 1.50),   # March: hypereutrophic
+    runif(31, 0.40, 0.60),   # March: mesotrophic
     
     runif(30, 0.80, 1.10),   # April: eutrophic
     runif(31, 0.80, 1.10),   # May: eutrophic
@@ -52,6 +52,14 @@ nutrient_data <- data.frame(
 
 # Add month column
 nutrient_data$month <- format(nutrient_data$date, "%B")
+
+# Check monthly means before saving
+nutrient_data |>
+  group_by(month) |>
+  summarise(
+    mean_phosphorus = round(mean(phosphorus_added), 2),
+    mean_nitrogen = round(mean(nitrogen_added), 2)
+  )
 
 # View first rows
 head(nutrient_data)
