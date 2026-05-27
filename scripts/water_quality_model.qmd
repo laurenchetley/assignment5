@@ -12,6 +12,8 @@ format:
     code-fold: true
     code-summary: "Show Code"
     fig-align: center
+    fig-width: 9
+    fig-height: 6
     backgroundcolor: "#e8f5e1"
     fontcolor: "#1b4332"
     linkcolor: "#40916c"
@@ -220,6 +222,7 @@ water_quality_results$final_water_quality <- factor(
     "Extreme Risk"
   )
 )
+
 
 # Create visualization
 wqm_classification_bargraph <- ggplot(

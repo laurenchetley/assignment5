@@ -9,7 +9,7 @@
 <meta name="author" content="Lauren Chetley &amp; Emma Rodriguez">
 <meta name="dcterms.date" content="2026-05-27">
 
-<title>🌿💧 Lake Eutrophication and Water Quality Classification Model 💧🌿</title>
+<title>Lake Eutrophication and Water Quality Classification Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,14 +83,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">🌱 Contents</h2>
    
   <ul>
-  <li><a href="#water-quality-contract" id="toc-water-quality-contract" class="nav-link active" data-scroll-target="#water-quality-contract"><span class="header-section-number">0.1</span> Water Quality Contract</a>
+  <li><a href="#lake-water-quality-contract" id="toc-lake-water-quality-contract" class="nav-link active" data-scroll-target="#lake-water-quality-contract"><span class="header-section-number">1</span> Lake Water Quality Contract</a>
   <ul class="collapse">
-  <li><a href="#modules-parameters" id="toc-modules-parameters" class="nav-link" data-scroll-target="#modules-parameters"><span class="header-section-number">0.1.1</span> Modules Parameters</a></li>
-  <li><a href="#water-quality-module-parameters" id="toc-water-quality-module-parameters" class="nav-link" data-scroll-target="#water-quality-module-parameters"><span class="header-section-number">0.1.2</span> Water Quality Module Parameters</a></li>
-  <li><a href="#flow-chart-diagram" id="toc-flow-chart-diagram" class="nav-link" data-scroll-target="#flow-chart-diagram"><span class="header-section-number">0.1.3</span> Flow Chart / Diagram</a></li>
+  <li><a href="#modules-parameters" id="toc-modules-parameters" class="nav-link" data-scroll-target="#modules-parameters"><span class="header-section-number">1.1</span> Modules Parameters</a></li>
+  <li><a href="#lake-water-quality-module-parameters" id="toc-lake-water-quality-module-parameters" class="nav-link" data-scroll-target="#lake-water-quality-module-parameters"><span class="header-section-number">1.2</span> Lake Water Quality Module Parameters</a></li>
+  <li><a href="#flow-chart-diagram" id="toc-flow-chart-diagram" class="nav-link" data-scroll-target="#flow-chart-diagram"><span class="header-section-number">1.3</span> Flow Chart / Diagram</a></li>
   </ul></li>
-  <li><a href="#final-water-quality-model" id="toc-final-water-quality-model" class="nav-link" data-scroll-target="#final-water-quality-model"><span class="header-section-number">0.2</span> Final Water Quality Model</a></li>
-  <li><a href="#water-quality-visualization-module" id="toc-water-quality-visualization-module" class="nav-link" data-scroll-target="#water-quality-visualization-module"><span class="header-section-number">1</span> Water Quality Visualization Module</a></li>
+  <li><a href="#final-lake-water-quality-model" id="toc-final-lake-water-quality-model" class="nav-link" data-scroll-target="#final-lake-water-quality-model"><span class="header-section-number">2</span> Final Lake Water Quality Model</a></li>
+  <li><a href="#lake-water-quality-visualization-module" id="toc-lake-water-quality-visualization-module" class="nav-link" data-scroll-target="#lake-water-quality-visualization-module"><span class="header-section-number">3</span> Lake Water Quality Visualization Module</a></li>
   </ul>
 </nav>
 </div>
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">🌿💧 Lake Eutrophication and Water Quality Classification Model 💧🌿</h1>
+<h1 class="title">Lake Eutrophication and Water Quality Classification Model</h1>
 </div>
 
 
@@ -127,18 +127,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="water-quality-contract" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="water-quality-contract"><span class="header-section-number">0.1</span> Water Quality Contract</h2>
-<section id="modules-parameters" class="level3" data-number="0.1.1">
-<h3 data-number="0.1.1" class="anchored" data-anchor-id="modules-parameters"><span class="header-section-number">0.1.1</span> Modules Parameters</h3>
-<section id="nutrients-phosphorus-and-nitrogen-module" class="level4" data-number="0.1.1.1">
-<h4 data-number="0.1.1.1" class="anchored" data-anchor-id="nutrients-phosphorus-and-nitrogen-module"><span class="header-section-number">0.1.1.1</span> Nutrients (Phosphorus and Nitrogen) Module</h4>
-<p>Input: Daily phosphorus and nitrogen nutrient inputs (mg/L)</p>
+<section id="lake-water-quality-contract" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="lake-water-quality-contract"><span class="header-section-number">1</span> Lake Water Quality Contract</h2>
+<section id="modules-parameters" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="modules-parameters"><span class="header-section-number">1.1</span> Modules Parameters</h3>
+<section id="nutrients-phosphorus-and-nitrogen-module" class="level4" data-number="1.1.1">
+<h4 data-number="1.1.1" class="anchored" data-anchor-id="nutrients-phosphorus-and-nitrogen-module"><span class="header-section-number">1.1.1</span> Nutrients (Phosphorus and Nitrogen) Module</h4>
+<p>Input: Daily lake phosphorus and nitrogen nutrient inputs (mg/L)</p>
 <ul>
 <li><p>Processing: Daily values aggregated to monthly means by water year (October - September)</p></li>
 <li><p>Function: nutrient_function</p></li>
 </ul>
-<p>Output: Total Productivity Risk Classifications:</p>
+<p>Output: Total Lake Productivity Risk Classifications:</p>
 <p>Phosphorus = P and Nitrogen = N</p>
 <ul>
 <li><p>Oligotrophic: Low Productivity: P &lt; 0.01 mg/L, N &lt; 0.35 mg/L</p></li>
@@ -147,17 +147,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Hypereutrophic: Very High Productivity: P &gt; 0.1 mg/L, N &gt; 1.20 mg/L</p></li>
 </ul>
 </section>
-<section id="section" class="level4" data-number="0.1.1.2">
-<h4 data-number="0.1.1.2" class="anchored" data-anchor-id="section"><span class="header-section-number">0.1.1.2</span> </h4>
+<section id="section" class="level4" data-number="1.1.2">
+<h4 data-number="1.1.2" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1.2</span> </h4>
 </section>
-<section id="dissolved-oxygen-module" class="level4" data-number="0.1.1.3">
-<h4 data-number="0.1.1.3" class="anchored" data-anchor-id="dissolved-oxygen-module"><span class="header-section-number">0.1.1.3</span> Dissolved Oxygen Module</h4>
-<p>Input: Daily dissolved oxygen levels (mg/L)</p>
+<section id="dissolved-oxygen-module" class="level4" data-number="1.1.3">
+<h4 data-number="1.1.3" class="anchored" data-anchor-id="dissolved-oxygen-module"><span class="header-section-number">1.1.3</span> Dissolved Oxygen Module</h4>
+<p>Input: Daily lake dissolved oxygen levels (mg/L)</p>
 <ul>
 <li><p>Processing: Daily values aggregated to monthly means by water year (October - September)</p></li>
 <li><p>Function: dissoxygen_function</p></li>
 </ul>
-<p>Output: Mean Dissolved Oxygen (DO) Classifications:</p>
+<p>Output: Mean Lake Dissolved Oxygen (DO) Classifications:</p>
 <ul>
 <li><p>Excellent DO: &gt; 8 mg/L</p></li>
 <li><p>Moderate DO: 5 - 8 mg/L</p></li>
@@ -165,14 +165,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Hypoxic DO: &lt;2 mg/L</p></li>
 </ul>
 </section>
-<section id="surface-water-temperature-module" class="level4" data-number="0.1.1.4">
-<h4 data-number="0.1.1.4" class="anchored" data-anchor-id="surface-water-temperature-module"><span class="header-section-number">0.1.1.4</span> Surface Water Temperature Module</h4>
-<p>Input: Daily surface water temperature (ºC)</p>
+<section id="surface-water-temperature-module" class="level4" data-number="1.1.4">
+<h4 data-number="1.1.4" class="anchored" data-anchor-id="surface-water-temperature-module"><span class="header-section-number">1.1.4</span> Surface Water Temperature Module</h4>
+<p>Input: Daily lake surface water temperature (ºC)</p>
 <ul>
 <li><p>Processing: Daily values aggregated to monthly means by water year (October - September)</p></li>
 <li><p>Function: temperature_function</p></li>
 </ul>
-<p>Output: Mean Temperature Classifications:</p>
+<p>Output: Mean Lake Temperature Classifications:</p>
 <ul>
 <li><p>Cool: Below Average &lt;13ºC</p></li>
 <li><p>Mild: Average 13ºC - 22ºC</p></li>
@@ -181,8 +181,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="water-quality-module-parameters" class="level3" data-number="0.1.2">
-<h3 data-number="0.1.2" class="anchored" data-anchor-id="water-quality-module-parameters"><span class="header-section-number">0.1.2</span> Water Quality Module Parameters</h3>
+<section id="lake-water-quality-module-parameters" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="lake-water-quality-module-parameters"><span class="header-section-number">1.2</span> Lake Water Quality Module Parameters</h3>
 <p>Inputs: Total productivity (mg/L ), mean dissolved oxygen (mg/L ), and mean surface water temperature (ºC)</p>
 <ul>
 <li><p>Expected inputs: 365 daily observations per water year (October - September)</p></li>
@@ -197,15 +197,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Extreme Risk - Hypereutrophic, Hypoxic DO, Hot temperature</p></li>
 </ul>
 </section>
-<section id="flow-chart-diagram" class="level3" data-number="0.1.3">
-<h3 data-number="0.1.3" class="anchored" data-anchor-id="flow-chart-diagram"><span class="header-section-number">0.1.3</span> Flow Chart / Diagram</h3>
+<section id="flow-chart-diagram" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="flow-chart-diagram"><span class="header-section-number">1.3</span> Flow Chart / Diagram</h3>
 </section>
 </section>
-<section id="final-water-quality-model" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="final-water-quality-model"><span class="header-section-number">0.2</span> Final Water Quality Model</h2>
+<section id="final-lake-water-quality-model" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="final-lake-water-quality-model"><span class="header-section-number">2</span> Final Lake Water Quality Model</h2>
 <div class="cell">
 <details class="code-fold">
-<summary>🌿 Show Code</summary>
+<summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Script for Final Water Quality Model</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># loading libraries</span></span>
@@ -224,14 +224,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 <details class="code-fold">
-<summary>🌿 Show Code</summary>
+<summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at /Users/laurenchetley/Desktop/Computing for Envionmental Science &amp; Mgmt /assignment5/assignment5</code></pre>
 </div>
 <details class="code-fold">
-<summary>🌿 Show Code</summary>
+<summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the model functions</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"nutrient_module_script.R"</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"dissoxygen_module_script.R"</span>))</span>
@@ -312,10 +312,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    &lt;fct&gt;   &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;              
  1 October Oligotrophic   Excellent        Cool - Below Ave… Low Risk           
  2 Novemb… Mesotrophic    Moderate         Cool - Below Ave… Moderate Risk      
- 3 Decemb… Eutrophic      Excellent        Cool - Below Ave… High Risk          
- 4 January Eutrophic      Excellent        Cool - Below Ave… High Risk          
+ 3 Decemb… Oligotrophic   Excellent        Cool - Below Ave… Low Risk           
+ 4 January Oligotrophic   Excellent        Cool - Below Ave… Low Risk           
  5 Februa… Mesotrophic    Excellent        Cool - Below Ave… Moderate Risk      
- 6 March   Hypereutrophic Moderate         Mild - Average    Extreme Risk       
+ 6 March   Mesotrophic    Moderate         Mild - Average    Moderate Risk      
  7 April   Eutrophic      Moderate         Mild - Average    High Risk          
  8 May     Eutrophic      Stressful        Warm - Above Ave… High Risk          
  9 June    Eutrophic      Stressful        Warm - Above Ave… High Risk          
@@ -325,61 +325,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="water-quality-visualization-module" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Water Quality Visualization Module</h1>
+<section id="lake-water-quality-visualization-module" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="lake-water-quality-visualization-module"><span class="header-section-number">3</span> Lake Water Quality Visualization Module</h2>
 <div class="cell">
 <details class="code-fold">
-<summary>🌿 Show Code</summary>
+<summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Water Quality Visualization Script</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Monthly Final Water Quality Classification</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This figure displays the overall monthly lake water quality risk</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># classification produced by the integrated water quality model.</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>wqm_classification_bargraph <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(water_quality_results,</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> month,</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> final_water_quality,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> final_water_quality)) <span class="sc">+</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Final Water Quality Classification"</span>,</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Water Quality Risk Classification"</span>,</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Risk Level"</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Low Risk"</span> <span class="ot">=</span> <span class="st">"#66c2a5"</span>,</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Moderate Risk"</span> <span class="ot">=</span> <span class="st">"#ffd166"</span>,</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"High Risk"</span> <span class="ot">=</span> <span class="st">"#f4a261"</span>,</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Extreme Risk"</span> <span class="ot">=</span> <span class="st">"#d62828"</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>wqm_classification_bargraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Monthly Final Water Quality Classification</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This figure displays the overall monthly lake water quality risk</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># classification produced by the integrated water quality model.</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set factor order for water quality classifications</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>water_quality_results<span class="sc">$</span>final_water_quality <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  water_quality_results<span class="sc">$</span>final_water_quality,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Low Risk"</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Moderate Risk"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"High Risk"</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Extreme Risk"</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>wqm_classification_bargraph <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  water_quality_results,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> month,</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> final_water_quality,</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> final_water_quality</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Final Lake Water Quality Classification By Water Year"</span>,</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Water Quality Risk Classification"</span>,</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Risk Level"</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Low Risk"</span> <span class="ot">=</span> <span class="st">"#66c2a5"</span>,</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Moderate Risk"</span> <span class="ot">=</span> <span class="st">"#ffd166"</span>,</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"High Risk"</span> <span class="ot">=</span> <span class="st">"#f4a261"</span>,</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Extreme Risk"</span> <span class="ot">=</span> <span class="st">"#d62828"</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>wqm_classification_bargraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="water_quality_model_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="water_quality_model_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
-<summary>🌿 Show Code</summary>
+<summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2: Monthly Environmental Conditions by Module</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -425,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Environmental Conditions"</span>,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Lake Environmental Conditions By Water Year"</span>,</span>
 <span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
 <span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Monthly Value"</span>,</span>
 <span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Environmental Variable"</span></span>
@@ -435,25 +452,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_nitrogen"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span>,</span>
 <span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_dissoxygen"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>,</span>
 <span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_temp_c"</span> <span class="ot">=</span> <span class="st">"firebrick"</span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_phosphorus"</span>  <span class="ot">=</span> <span class="st">"Phosphorus (mg/L)"</span>,</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_nitrogen"</span>    <span class="ot">=</span> <span class="st">"Nitrogen (mg/L)"</span>,</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_dissoxygen"</span>  <span class="ot">=</span> <span class="st">"Dissolved Oxygen (mg/L)"</span>,</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_temp_c"</span>      <span class="ot">=</span> <span class="st">"Surface Water Temperature (°C)"</span>)) <span class="sc">+</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <details class="code-fold">
-<summary>🌿 Show Code</summary>
+<summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>monthly_conditions_linegraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="water_quality_model_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="water_quality_model_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="864"></p>
 </figure>
 </div>
 </div>
