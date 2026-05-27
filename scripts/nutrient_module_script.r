@@ -1,55 +1,73 @@
 # Script for Nutrient Module
 
-# Classifies lake nutrient status based on total phosphorus and total nitrogen
+# This function organizes daily phosphorus and nitrogen data
+# by water year month, calculates monthly mean nutrient levels,
+# and classifies lake productivity conditions based on nutrient
+# concentration thresholds.
 #
-# ---- Inputs:---- 
-#   total_p: total phosphorus in mg/L
-#   total_n: total nitrogen in mg/L
+# ---- Inputs: ----
+# nutrientdata:
+#   A dataframe containing:
+#   - month
+#   - phosphorus_added (mg/L)
+#   - nitrogen_added (mg/L)
 #
-#----- Output: ----
-#   A nutrient classification:
-#   "Oligotrophic", "Mesotrophic", "Eutrophic", or "Hypereutrophic"
+# ---- Output: ----
+# A dataframe containing:
+#   - monthly mean phosphorus concentrations
+#   - monthly mean nitrogen concentrations
+#   - nutrient productivity classification
+#
+# Possible classifications:
+#   "Oligotrophic"      = Low productivity
+#   "Mesotrophic"       = Medium productivity
+#   "Eutrophic"         = High productivity
+#   "Hypereutrophic"    = Very high productivity
 
 
-nutrient_model <- function(total_p, total_n) {
+# nutrient classification function
+nutrient_model <- function(nutrientdata) {
   
-  # Calculate means
-  mean_p <- mean(total_p)
-  mean_n <- mean(total_n)
+  # put months in water year order
+  water_year_order <- c("October", "November", "December",
+                        "January", "February", "March",
+                        "April", "May", "June",
+                        "July", "August", "September")
   
-  # Classification
-  if (mean_p < 0.01 && mean_n < 0.35) {
-    
-    nutrient_class <- "Oligotrophic"
-    
-  } else if (mean_p >= 0.01 && mean_p <= 0.03 &&
-             mean_n >= 0.36 && mean_n <= 0.65) {
-    
-    nutrient_class <- "Mesotrophic"
-    
-  } else if (mean_p > 0.03 && mean_p <= 0.10 &&
-             mean_n > 0.65 && mean_n <= 1.20) {
-    
-    nutrient_class <- "Eutrophic"
-    
-  } else if (mean_p > 0.10 || mean_n > 1.20) {
-    
-    nutrient_class <- "Hypereutrophic"
-    
-  } else {
-    
-    nutrient_class <- "Mixed Condition"
-  }
+  # calculate monthly means
+  monthly_means <- nutrientdata |>
+    mutate(month = factor(month, levels = water_year_order)) |>
+    group_by(month) |>
+    summarise(
+      mean_phosphorus = round(mean(phosphorus_added, na.rm = TRUE), 2),
+      mean_nitrogen = round(mean(nitrogen_added, na.rm = TRUE), 2)
+    )
   
-  # Return results
-  return(list(
-    Mean_Phosphorus = mean_p,
-    Mean_Nitrogen = mean_n,
-    Nutrient_Class = nutrient_class
-  ))
+  # classify nutrient conditions
+  monthly_means <- monthly_means |>
+    mutate(
+      classification = case_when(
+        
+        mean_phosphorus < 0.01 &
+          mean_nitrogen < 0.35 ~ "Oligotrophic",
+        
+        mean_phosphorus >= 0.01 &
+          mean_phosphorus <= 0.03 &
+          mean_nitrogen >= 0.36 &
+          mean_nitrogen <= 0.65 ~ "Mesotrophic",
+        
+        mean_phosphorus > 0.03 &
+          mean_phosphorus <= 0.10 &
+          mean_nitrogen > 0.65 &
+          mean_nitrogen <= 1.20 ~ "Eutrophic",
+        
+        mean_phosphorus > 0.10 |
+          mean_nitrogen > 1.20 ~ "Hypereutrophic",
+        
+        TRUE ~ "Mixed Condition"
+      )
+    )
+  
+  return(monthly_means)
 }
-
-
-
-
 
