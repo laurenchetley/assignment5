@@ -17,7 +17,7 @@ library(tidyverse)
 library(here)
 
 # dissolved oxygen model function
-dissoxygen_model <- function(dissoxygendata) {
+dissoxygen_function <- function(dissoxygendata) {
   
   # put them in order 
   water_year_order <- c("October", "November", "December",

@@ -26,7 +26,7 @@
 
 
 # nutrient classification function
-nutrient_model <- function(nutrientdata) {
+nutrient_function <- function(nutrientdata) {
   
   # put months in water year order
   water_year_order <- c("October", "November", "December",
