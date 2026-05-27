@@ -20,6 +20,9 @@ format:
     linestretch: 1.8
     mainfont: "Georgia"
 editor: visual
+resources:
+  - figures/flowchart.jpg
+  - figures/flowchart.pdf
 ---
 
 ## Water Quality Contract
@@ -104,14 +107,38 @@ Outputs: water_quality_model - Monthly water quality risk classifications
 
 -   Extreme Risk - Hypereutrophic, Hypoxic DO, Hot temperature
 
-### Flow Chart / Diagram
+## Flow Chart / Diagram
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+library(here)
+library(htmltools)
+library(base64enc)
 
+pdf_base64 <- dataURI(
+  file = here::here("figures", "flowchart.pdf"),
+  mime = "application/pdf"
+)
 
+pdf_link <- tags$a(
+  href = pdf_base64,
+  download = "flowchart.pdf",
+  "Download Full Flow Chart PDF"
+)
+
+flowchart_img <- tags$img(
+  src = knitr::image_uri(here::here("figures", "flowchart.jpg")),
+  style = "width:100%; border:1px solid #ddd;"
+)
+
+tagList(
+  pdf_link,
+  tags$br(),
+  tags$br(),
+  flowchart_img
+)
 ```
 
-## Final Water Quality Model
+# Water Quality Model
 
 ```{r}
 # Script for Final Water Quality Model
