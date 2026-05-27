@@ -9,7 +9,7 @@ editor: visual
 
 ### Modules Parameters
 
-#### Nutrients (Phosphorus and Nitrogen) Module 
+#### Nutrients (Phosphorus and Nitrogen) Module
 
 Input: Daily phosphorus and nitrogen nutrient inputs (mg/L)
 
@@ -31,7 +31,7 @@ Phosphorus = P and Nitrogen = N
 
 #### 
 
-#### Dissolved Oxygen Module 
+#### Dissolved Oxygen Module
 
 Input: Daily dissolved oxygen levels (mg/L)
 
@@ -49,7 +49,7 @@ Output: Mean Dissolved Oxygen (DO) Classifications:
 
 -   Hypoxic DO: \<2 mg/L
 
-#### Surface Water Temperature Module 
+#### Surface Water Temperature Module
 
 Input: Daily surface water temperature (ºC)
 
@@ -67,15 +67,13 @@ Output: Mean Temperature Classifications:
 
 -   Hot: Boiling \>30ºC
 
-### Water Quality Module Parameters 
+### Water Quality Module Parameters
 
 Inputs: Total productivity (mg/L ), mean dissolved oxygen (mg/L ), and mean surface water temperature (ºC)
 
 -   Expected inputs: 365 daily observations per water year (October - September)
 
 -   Functions used: temperature_function, nutrients_function, and dissoxygen_function
-
-<!-- -->
 
 -   Processing: Monthly classifications from each module combined to assign overall water quality risk
 
