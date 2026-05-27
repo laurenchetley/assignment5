@@ -5,65 +5,89 @@ format: html
 editor: visual
 ---
 
-## Contract
+## Water Quality Contract
 
-### Parameters
+### Modules Parameters
 
-#### Temperature
+#### Nutrients (Phosphorus and Nitrogen) Module 
 
-Temperature Module: surface water temperature (swt), seasonal time (temp.time)
+Input: Daily phosphorus and nitrogen nutrient inputs (mg/L)
 
-Temperature Classification:
+-   Processing: Daily values aggregated to monthly means by water year (October - September)
 
--   Cool
+-   Function: nutrient_function
 
--   Mild
+Output: Total Productivity Risk Classifications:
 
--   Average
+Phosphorus = P and Nitrogen = N
 
--   Warm
+-   Oligotrophic: Low Productivity: P \< 0.01 mg/L, N \< 0.35 mg/L
 
--   Hot
+-   Mesotrophic: Medium Productivity: P 0.01 - 0.03 mg/L, N 0.36-0.65 mg/L
 
-#### Nutrient
+-   Eutrophic: High Productivity: P 0.03 - 0.10 mg/L, N 0.65 - 1.20 mg/L
 
-Nutrient Module: nitrogen (n.input), phosphorus (p.input), seasonal time (nutrient.time)
+-   Hypereutrophic: Very High Productivity: P \> 0.1 mg/L, N \> 1.20 mg/L
 
-Productivity Risk Classification
+#### 
 
--   Oligotrophic
+#### Dissolved Oxygen Module 
 
--   Mesotrophic
+Input: Daily dissolved oxygen levels (mg/L)
 
--   Eutrophic
+-   Processing: Daily values aggregated to monthly means by water year (October - September)
 
--   Hypereutrophic
+-   Function: dissoxygen_function
 
-#### Dissolved Oxygen
+Output: Mean Dissolved Oxygen (DO) Classifications:
 
-Dissolved Oxygen Module: dissolved oxygen (diss.oxy), seasonal time (diss.oxy.time)
+-   Excellent DO: \> 8 mg/L
 
--   Excellent
+-   Moderate DO: 5 - 8 mg/L
 
--   Moderate
+-   Stressful DO: 2-5 mg/L
 
--   Stressful
+-   Hypoxic DO: \<2 mg/L
 
--   Hypoxic
+#### Surface Water Temperature Module 
 
-### Inputs & Outputs
+Input: Daily surface water temperature (ºC)
 
-Inputs: surface water temperature, temperature seasonal time, nitrogen, phosphorus, nutrient seasonal time, dissolved oxygen, dissolved oxygen seasonal time
+-   Processing: Daily values aggregated to monthly means by water year (October - September)
 
-Outputs: Water Quality Model
+-   Function: temperature_function
 
--   Low Risk - Oligotrophic, excellent, cool
+Output: Mean Temperature Classifications:
 
--   Moderate Risk - Mesotrophic, moderate, mild
+-   Cool: Below Average \<13ºC
 
--   High Risk - Eutrophic, stressful, warm
+-   Mild: Average 13ºC - 22ºC
 
--   Extreme Risk - Hypereutrophic, hypoxic, hot
+-   Warm: Above Average 22ºC - 30ºC
+
+-   Hot: Boiling \>30ºC
+
+### Water Quality Module Parameters 
+
+Inputs: Total productivity (mg/L ), mean dissolved oxygen (mg/L ), and mean surface water temperature (ºC)
+
+-   Expected inputs: 365 daily observations per water year (October - September)
+
+-   Functions used: temperature_function, nutrients_function, and dissoxygen_function
+
+<!-- -->
+
+-   Processing: Monthly classifications from each module combined to assign overall water quality risk
+
+Outputs: water_quality_model - Monthly water quality risk classifications
+
+-   Low Risk - Oligotrophic, Excellent DO, Cool temperature
+
+-   Moderate Risk - Mesotrophic, Moderate DO, Mild temperature
+
+-   High Risk - Eutrophic, Stressful DO, Warm temperature
+
+-   Extreme Risk - Hypereutrophic, Hypoxic DO, Hot temperature
 
 ### Flow Chart / Diagram
 
