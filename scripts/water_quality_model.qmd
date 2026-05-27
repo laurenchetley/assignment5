@@ -1,7 +1,24 @@
 ---
 title: "Lake Eutrophication and Water Quality Classification Model"
 author: "Lauren Chetley & Emma Rodriguez"
-format: html
+date: today
+format: 
+  html:
+    theme: flatly
+    toc: true
+    toc-title: "🌱 Contents"
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-summary: "Show Code"
+    fig-align: center
+    backgroundcolor: "#e8f5e1"
+    fontcolor: "#1b4332"
+    linkcolor: "#40916c"
+    monobackgroundcolor: "#d8f3dc"
+    fontsize: 1.1em
+    linestretch: 1.8
+    mainfont: "Georgia"
 editor: visual
 ---
 
@@ -200,7 +217,7 @@ wqm_classification_bargraph <- ggplot(water_quality_results,
            fill = final_water_quality)) +
   geom_col(color = "black", width = 0.7) +
   labs(
-    title = "Monthly Final Water Quality Classification",
+    title = "Monthly Final Water Quality Classification By Water Year",
     x = "Month",
     y = "Water Quality Risk Classification",
     fill = "Risk Level"
@@ -270,7 +287,7 @@ monthly_conditions_linegraph <- ggplot(visual_data_long,
   geom_line(size = 1.2) +
   geom_point(size = 3) +
   labs(
-    title = "Monthly Environmental Conditions",
+    title = "Monthly Environmental Conditions By Water Year",
     x = "Month",
     y = "Mean Monthly Value",
     color = "Environmental Variable"
@@ -280,7 +297,12 @@ monthly_conditions_linegraph <- ggplot(visual_data_long,
     "mean_nitrogen" = "forestgreen",
     "mean_dissoxygen" = "steelblue",
     "mean_temp_c" = "firebrick"
-  )) +
+  ),
+  labels = c(
+      "mean_phosphorus"  = "Phosphorus (mg/L)",
+      "mean_nitrogen"    = "Nitrogen (mg/L)",
+      "mean_dissoxygen"  = "Dissolved Oxygen (mg/L)",
+      "mean_temp_c"      = "Surface Water Temperature (°C)")) +
   theme_minimal() +
   theme(
     plot.title = element_text(face = "bold"),

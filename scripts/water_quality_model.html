@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lauren Chetley &amp; Emma Rodriguez">
+<meta name="dcterms.date" content="2026-05-27">
 
-<title>Lake Eutrophication and Water Quality Classification Model</title>
+<title>🌿💧 Lake Eutrophication and Water Quality Classification Model 💧🌿</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,20 +70,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="water_quality_model_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="water_quality_model_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="water_quality_model_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="water_quality_model_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="water_quality_model_files/libs/bootstrap/bootstrap-28dd4c4018a199af640c180aa0dc9c19.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">🌱 Contents</h2>
+   
+  <ul>
+  <li><a href="#water-quality-contract" id="toc-water-quality-contract" class="nav-link active" data-scroll-target="#water-quality-contract"><span class="header-section-number">0.1</span> Water Quality Contract</a>
+  <ul class="collapse">
+  <li><a href="#modules-parameters" id="toc-modules-parameters" class="nav-link" data-scroll-target="#modules-parameters"><span class="header-section-number">0.1.1</span> Modules Parameters</a></li>
+  <li><a href="#water-quality-module-parameters" id="toc-water-quality-module-parameters" class="nav-link" data-scroll-target="#water-quality-module-parameters"><span class="header-section-number">0.1.2</span> Water Quality Module Parameters</a></li>
+  <li><a href="#flow-chart-diagram" id="toc-flow-chart-diagram" class="nav-link" data-scroll-target="#flow-chart-diagram"><span class="header-section-number">0.1.3</span> Flow Chart / Diagram</a></li>
+  </ul></li>
+  <li><a href="#final-water-quality-model" id="toc-final-water-quality-model" class="nav-link" data-scroll-target="#final-water-quality-model"><span class="header-section-number">0.2</span> Final Water Quality Model</a></li>
+  <li><a href="#water-quality-visualization-module" id="toc-water-quality-visualization-module" class="nav-link" data-scroll-target="#water-quality-visualization-module"><span class="header-section-number">1</span> Water Quality Visualization Module</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lake Eutrophication and Water Quality Classification Model</h1>
+<h1 class="title">🌿💧 Lake Eutrophication and Water Quality Classification Model 💧🌿</h1>
 </div>
 
 
@@ -61,6 +112,12 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 27, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -70,58 +127,337 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="contract" class="level2">
-<h2 class="anchored" data-anchor-id="contract">Contract</h2>
-<section id="parameters" class="level3">
-<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
-<section id="temperature" class="level4">
-<h4 class="anchored" data-anchor-id="temperature">Temperature</h4>
-<p>Temperature Module: surface water temperature (swt), seasonal time (temp.time)</p>
-<p>Temperature Classification:</p>
+<section id="water-quality-contract" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="water-quality-contract"><span class="header-section-number">0.1</span> Water Quality Contract</h2>
+<section id="modules-parameters" class="level3" data-number="0.1.1">
+<h3 data-number="0.1.1" class="anchored" data-anchor-id="modules-parameters"><span class="header-section-number">0.1.1</span> Modules Parameters</h3>
+<section id="nutrients-phosphorus-and-nitrogen-module" class="level4" data-number="0.1.1.1">
+<h4 data-number="0.1.1.1" class="anchored" data-anchor-id="nutrients-phosphorus-and-nitrogen-module"><span class="header-section-number">0.1.1.1</span> Nutrients (Phosphorus and Nitrogen) Module</h4>
+<p>Input: Daily phosphorus and nitrogen nutrient inputs (mg/L)</p>
 <ul>
-<li><p>Cool</p></li>
-<li><p>Mild</p></li>
-<li><p>Average</p></li>
-<li><p>Warm</p></li>
-<li><p>Hot</p></li>
+<li><p>Processing: Daily values aggregated to monthly means by water year (October - September)</p></li>
+<li><p>Function: nutrient_function</p></li>
+</ul>
+<p>Output: Total Productivity Risk Classifications:</p>
+<p>Phosphorus = P and Nitrogen = N</p>
+<ul>
+<li><p>Oligotrophic: Low Productivity: P &lt; 0.01 mg/L, N &lt; 0.35 mg/L</p></li>
+<li><p>Mesotrophic: Medium Productivity: P 0.01 - 0.03 mg/L, N 0.36-0.65 mg/L</p></li>
+<li><p>Eutrophic: High Productivity: P 0.03 - 0.10 mg/L, N 0.65 - 1.20 mg/L</p></li>
+<li><p>Hypereutrophic: Very High Productivity: P &gt; 0.1 mg/L, N &gt; 1.20 mg/L</p></li>
 </ul>
 </section>
-<section id="nutrient" class="level4">
-<h4 class="anchored" data-anchor-id="nutrient">Nutrient</h4>
-<p>Nutrient Module: nitrogen (n.input), phosphorus (p.input), seasonal time (nutrient.time)</p>
-<p>Productivity Risk Classification</p>
+<section id="section" class="level4" data-number="0.1.1.2">
+<h4 data-number="0.1.1.2" class="anchored" data-anchor-id="section"><span class="header-section-number">0.1.1.2</span> </h4>
+</section>
+<section id="dissolved-oxygen-module" class="level4" data-number="0.1.1.3">
+<h4 data-number="0.1.1.3" class="anchored" data-anchor-id="dissolved-oxygen-module"><span class="header-section-number">0.1.1.3</span> Dissolved Oxygen Module</h4>
+<p>Input: Daily dissolved oxygen levels (mg/L)</p>
 <ul>
-<li><p>Oligotrophic</p></li>
-<li><p>Mesotrophic</p></li>
-<li><p>Eutrophic</p></li>
-<li><p>Hypereutrophic</p></li>
+<li><p>Processing: Daily values aggregated to monthly means by water year (October - September)</p></li>
+<li><p>Function: dissoxygen_function</p></li>
+</ul>
+<p>Output: Mean Dissolved Oxygen (DO) Classifications:</p>
+<ul>
+<li><p>Excellent DO: &gt; 8 mg/L</p></li>
+<li><p>Moderate DO: 5 - 8 mg/L</p></li>
+<li><p>Stressful DO: 2-5 mg/L</p></li>
+<li><p>Hypoxic DO: &lt;2 mg/L</p></li>
 </ul>
 </section>
-<section id="dissolved-oxygen" class="level4">
-<h4 class="anchored" data-anchor-id="dissolved-oxygen">Dissolved Oxygen</h4>
-<p>Dissolved Oxygen Module: dissolved oxygen (diss.oxy), seasonal time (diss.oxy.time)</p>
+<section id="surface-water-temperature-module" class="level4" data-number="0.1.1.4">
+<h4 data-number="0.1.1.4" class="anchored" data-anchor-id="surface-water-temperature-module"><span class="header-section-number">0.1.1.4</span> Surface Water Temperature Module</h4>
+<p>Input: Daily surface water temperature (ºC)</p>
 <ul>
-<li><p>Excellent</p></li>
-<li><p>Moderate</p></li>
-<li><p>Stressful</p></li>
-<li><p>Hypoxic</p></li>
+<li><p>Processing: Daily values aggregated to monthly means by water year (October - September)</p></li>
+<li><p>Function: temperature_function</p></li>
+</ul>
+<p>Output: Mean Temperature Classifications:</p>
+<ul>
+<li><p>Cool: Below Average &lt;13ºC</p></li>
+<li><p>Mild: Average 13ºC - 22ºC</p></li>
+<li><p>Warm: Above Average 22ºC - 30ºC</p></li>
+<li><p>Hot: Boiling &gt;30ºC</p></li>
 </ul>
 </section>
 </section>
-<section id="inputs-outputs" class="level3">
-<h3 class="anchored" data-anchor-id="inputs-outputs">Inputs &amp; Outputs</h3>
-<p>Inputs: surface water temperature, temperature seasonal time, nitrogen, phosphorus, nutrient seasonal time, dissolved oxygen, dissolved oxygen seasonal time</p>
-<p>Outputs: Water Quality Model</p>
+<section id="water-quality-module-parameters" class="level3" data-number="0.1.2">
+<h3 data-number="0.1.2" class="anchored" data-anchor-id="water-quality-module-parameters"><span class="header-section-number">0.1.2</span> Water Quality Module Parameters</h3>
+<p>Inputs: Total productivity (mg/L ), mean dissolved oxygen (mg/L ), and mean surface water temperature (ºC)</p>
 <ul>
-<li><p>Low Risk - Oligotrophic, excellent, cool</p></li>
-<li><p>Moderate Risk - Mesotrophic, moderate, mild</p></li>
-<li><p>High Risk - Eutrophic, stressful, warm</p></li>
-<li><p>Extreme Risk - Hypereutrophic, hypoxic, hot</p></li>
+<li><p>Expected inputs: 365 daily observations per water year (October - September)</p></li>
+<li><p>Functions used: temperature_function, nutrients_function, and dissoxygen_function</p></li>
+<li><p>Processing: Monthly classifications from each module combined to assign overall water quality risk</p></li>
+</ul>
+<p>Outputs: water_quality_model - Monthly water quality risk classifications</p>
+<ul>
+<li><p>Low Risk - Oligotrophic, Excellent DO, Cool temperature</p></li>
+<li><p>Moderate Risk - Mesotrophic, Moderate DO, Mild temperature</p></li>
+<li><p>High Risk - Eutrophic, Stressful DO, Warm temperature</p></li>
+<li><p>Extreme Risk - Hypereutrophic, Hypoxic DO, Hot temperature</p></li>
 </ul>
 </section>
-<section id="flow-chart-diagram" class="level3">
-<h3 class="anchored" data-anchor-id="flow-chart-diagram">Flow Chart / Diagram</h3>
+<section id="flow-chart-diagram" class="level3" data-number="0.1.3">
+<h3 data-number="0.1.3" class="anchored" data-anchor-id="flow-chart-diagram"><span class="header-section-number">0.1.3</span> Flow Chart / Diagram</h3>
 </section>
+</section>
+<section id="final-water-quality-model" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="final-water-quality-model"><span class="header-section-number">0.2</span> Final Water Quality Model</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>🌿 Show Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Script for Final Water Quality Model</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># loading libraries</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.5     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>🌿 Show Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /Users/laurenchetley/Desktop/Computing for Envionmental Science &amp; Mgmt /assignment5/assignment5</code></pre>
+</div>
+<details class="code-fold">
+<summary>🌿 Show Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the model functions</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"nutrient_module_script.R"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"dissoxygen_module_script.R"</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"temperature_module_script.R"</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the data</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>nutrientdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"nutrient_data.csv"</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>dissoxygendata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"dissoxygen_data.csv"</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>temperaturedata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temperature_data.csv"</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># run each model</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>nutrient_results <span class="ot">&lt;-</span> <span class="fu">nutrient_function</span>(nutrientdata)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>dissoxygen_results <span class="ot">&lt;-</span> <span class="fu">dissoxygen_function</span>(dissoxygendata)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>temperature_results <span class="ot">&lt;-</span> <span class="fu">temperature_function</span>(temperaturedata)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># combine model outputs by month</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>water_quality_data <span class="ot">&lt;-</span> nutrient_results <span class="sc">|&gt;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(month, <span class="at">nutrient_class =</span> classification) <span class="sc">|&gt;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    dissoxygen_results <span class="sc">|&gt;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(month, <span class="at">dissoxygen_class =</span> classification),</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"month"</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    temperature_results <span class="sc">|&gt;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(month, <span class="at">temperature_class =</span> classification),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"month"</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co"># final water quality classification function</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>water_quality_model <span class="ot">&lt;-</span> <span class="cf">function</span>(nutrient_class,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>                                dissoxygen_class,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                                temperature_class) {</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (nutrient_class <span class="sc">==</span> <span class="st">"Hypereutrophic"</span> <span class="sc">||</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      dissoxygen_class <span class="sc">==</span> <span class="st">"Hypoxic"</span> <span class="sc">||</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>      temperature_class <span class="sc">==</span> <span class="st">"Hot - Boiling"</span>) {</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    final_class <span class="ot">&lt;-</span> <span class="st">"Extreme Risk"</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (nutrient_class <span class="sc">==</span> <span class="st">"Eutrophic"</span> <span class="sc">||</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>             dissoxygen_class <span class="sc">==</span> <span class="st">"Stressful"</span> <span class="sc">||</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>             temperature_class <span class="sc">==</span> <span class="st">"Warm - Above Average"</span>) {</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    final_class <span class="ot">&lt;-</span> <span class="st">"High Risk"</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (nutrient_class <span class="sc">==</span> <span class="st">"Mesotrophic"</span> <span class="sc">||</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>             dissoxygen_class <span class="sc">==</span> <span class="st">"Moderate"</span> <span class="sc">||</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>             temperature_class <span class="sc">==</span> <span class="st">"Mild - Average"</span>) {</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    final_class <span class="ot">&lt;-</span> <span class="st">"Moderate Risk"</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    final_class <span class="ot">&lt;-</span> <span class="st">"Low Risk"</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(final_class)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co"># apply final model</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>water_quality_results <span class="ot">&lt;-</span> water_quality_data <span class="sc">|&gt;</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">final_water_quality =</span> <span class="fu">mapply</span>(</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>      water_quality_model,</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>      nutrient_class,</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>      dissoxygen_class,</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>      temperature_class</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="co"># show final results</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(water_quality_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+   month   nutrient_class dissoxygen_class temperature_class final_water_quality
+   &lt;fct&gt;   &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;              
+ 1 October Oligotrophic   Excellent        Cool - Below Ave… Low Risk           
+ 2 Novemb… Mesotrophic    Moderate         Cool - Below Ave… Moderate Risk      
+ 3 Decemb… Eutrophic      Excellent        Cool - Below Ave… High Risk          
+ 4 January Eutrophic      Excellent        Cool - Below Ave… High Risk          
+ 5 Februa… Mesotrophic    Excellent        Cool - Below Ave… Moderate Risk      
+ 6 March   Hypereutrophic Moderate         Mild - Average    Extreme Risk       
+ 7 April   Eutrophic      Moderate         Mild - Average    High Risk          
+ 8 May     Eutrophic      Stressful        Warm - Above Ave… High Risk          
+ 9 June    Eutrophic      Stressful        Warm - Above Ave… High Risk          
+10 July    Oligotrophic   Hypoxic          Warm - Above Ave… Extreme Risk       
+11 August  Hypereutrophic Hypoxic          Hot - Boiling     Extreme Risk       
+12 Septem… Mesotrophic    Stressful        Warm - Above Ave… High Risk          </code></pre>
+</div>
+</div>
+</section>
+<section id="water-quality-visualization-module" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Water Quality Visualization Module</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>🌿 Show Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Water Quality Visualization Script</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Monthly Final Water Quality Classification</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This figure displays the overall monthly lake water quality risk</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># classification produced by the integrated water quality model.</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>wqm_classification_bargraph <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(water_quality_results,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> month,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> final_water_quality,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> final_water_quality)) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Final Water Quality Classification"</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Water Quality Risk Classification"</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Risk Level"</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Low Risk"</span> <span class="ot">=</span> <span class="st">"#66c2a5"</span>,</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Moderate Risk"</span> <span class="ot">=</span> <span class="st">"#ffd166"</span>,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"High Risk"</span> <span class="ot">=</span> <span class="st">"#f4a261"</span>,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Extreme Risk"</span> <span class="ot">=</span> <span class="st">"#d62828"</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>wqm_classification_bargraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="water_quality_model_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>🌿 Show Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2: Monthly Environmental Conditions by Module</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This figure displays the monthly mean phosphorus, nitrogen,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dissolved oxygen, and temperature values used in the lake</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># water quality model. The plot highlights seasonal environmental</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># patterns across the water year.</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine monthly model outputs</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>visual_data <span class="ot">&lt;-</span> nutrient_results <span class="sc">|&gt;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(month,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>         mean_phosphorus,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>         mean_nitrogen) <span class="sc">|&gt;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    dissoxygen_results <span class="sc">|&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(month, mean_dissoxygen),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"month"</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    temperature_results <span class="sc">|&gt;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(month, mean_temp_c),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"month"</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long format for plotting</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>visual_data_long <span class="ot">&lt;-</span> visual_data <span class="sc">|&gt;</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(mean_phosphorus,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>             mean_nitrogen,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>             mean_dissoxygen,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>             mean_temp_c),</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"variable"</span>,</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>monthly_conditions_linegraph <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(visual_data_long,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> month,</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> value,</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> variable,</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>           <span class="at">group =</span> variable)) <span class="sc">+</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Environmental Conditions"</span>,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Monthly Value"</span>,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Environmental Variable"</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_phosphorus"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_nitrogen"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span>,</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_dissoxygen"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_temp_c"</span> <span class="ot">=</span> <span class="st">"firebrick"</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<details class="code-fold">
+<summary>🌿 Show Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>monthly_conditions_linegraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="water_quality_model_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 
 </main>
