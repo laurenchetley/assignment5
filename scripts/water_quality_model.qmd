@@ -27,89 +27,153 @@ resources:
   - figures/flowchart.pdf
 ---
 
-## Lake Water Quality Contract
+# Lake Water Quality Contract
 
-### Modules Parameters
+## Overall Program Description
 
-#### Nutrients (Phosphorus and Nitrogen) Module
+The purpose of this program is to simulate and classify lake water quality conditions across a full water year (October through September) using daily environmental data. The model integrates nutrient concentrations, dissolved oxygen levels, and surface water temperatures to estimate overall monthly lake water quality risk. The program is organized into multiple connected modules, where each module processes environmental data independently before contributing to the final integrated water quality classification model.
 
-Input: Daily lake phosphorus and nitrogen nutrient inputs (mg/L)
+The program uses simulated daily environmental observations, aggregates them into monthly means, and applies classification thresholds to evaluate changing lake conditions throughout the water year.
 
--   Processing: Daily values aggregated to monthly means by water year (October - September)
 
--   Function: nutrient_function
+## Module Parameters
 
-Output: Total Lake Productivity Risk Classifications:
+### Nutrients (Phosphorus and Nitrogen) Module
+
+-   Function: `nutrient_function`
+
+Inputs:
+
+-   Daily lake phosphorus concentrations (mg/L)
+
+-   Daily lake nitrogen concentrations (mg/L)
+
+-   Expected input length: 365 daily observations per water year (October - September)
+
+Processing:
+
+-   Daily nutrient values aggregated into monthly mean concentrations by water year
+
+-   Monthly nutrient classifications assigned based on phosphorus and nitrogen thresholds
+
+Outputs:
+
+-   Monthly lake productivity risk classifications
 
 Phosphorus = P and Nitrogen = N
 
--   Oligotrophic: Low Productivity: P \< 0.01 mg/L, N \< 0.35 mg/L
+-   Oligotrophic: Low Productivity  
+    P \< 0.01 mg/L, N \< 0.35 mg/L
 
--   Mesotrophic: Medium Productivity: P 0.01 - 0.03 mg/L, N 0.36-0.65 mg/L
+-   Mesotrophic: Medium Productivity  
+    P 0.01 - 0.03 mg/L, N 0.36 - 0.65 mg/L
 
--   Eutrophic: High Productivity: P 0.03 - 0.10 mg/L, N 0.65 - 1.20 mg/L
+-   Eutrophic: High Productivity  
+    P 0.03 - 0.10 mg/L, N 0.65 - 1.20 mg/L
 
--   Hypereutrophic: Very High Productivity: P \> 0.1 mg/L, N \> 1.20 mg/L
+-   Hypereutrophic: Very High Productivity  
+    P \> 0.10 mg/L, N \> 1.20 mg/L
 
-#### 
 
-#### Dissolved Oxygen Module
+### Dissolved Oxygen Module
 
-Input: Daily lake dissolved oxygen levels (mg/L)
+-   Function: `dissoxygen_function`
 
--   Processing: Daily values aggregated to monthly means by water year (October - September)
+Inputs:
 
--   Function: dissoxygen_function
+-   Daily lake dissolved oxygen levels (mg/L)
 
-Output: Mean Lake Dissolved Oxygen (DO) Classifications:
+-   Expected input length: 365 daily observations per water year (October - September)
+
+Processing:
+
+-   Daily dissolved oxygen values aggregated into monthly mean dissolved oxygen concentrations by water year
+
+-   Monthly dissolved oxygen classifications assigned based on oxygen thresholds
+
+Outputs:
+
+-   Mean lake dissolved oxygen classifications
 
 -   Excellent DO: \> 8 mg/L
 
 -   Moderate DO: 5 - 8 mg/L
 
--   Stressful DO: 2-5 mg/L
+-   Stressful DO: 2 - 5 mg/L
 
--   Hypoxic DO: \<2 mg/L
+-   Hypoxic DO: \< 2 mg/L
 
-#### Surface Water Temperature Module
 
-Input: Daily lake surface water temperature (ºC)
+### Surface Water Temperature Module
 
--   Processing: Daily values aggregated to monthly means by water year (October - September)
+-   Function: `temperature_function`
 
--   Function: temperature_function
+Inputs:
 
-Output: Mean Lake Temperature Classifications:
+-   Daily lake surface water temperatures (ºC)
 
--   Cool: Below Average \<13ºC
+-   Expected input length: 365 daily observations per water year (October - September)
+
+Processing:
+
+-   Daily surface water temperatures aggregated into monthly mean temperatures by water year
+
+-   Monthly temperature classifications assigned based on temperature thresholds
+
+Outputs:
+
+-   Mean lake temperature classifications
+
+-   Cool: Below Average \< 13ºC
 
 -   Mild: Average 13ºC - 22ºC
 
 -   Warm: Above Average 22ºC - 30ºC
 
--   Hot: Boiling \>30ºC
+-   Hot: Boiling \> 30ºC
+
 
 ### Lake Water Quality Module Parameters
 
-Inputs: Total productivity (mg/L ), mean dissolved oxygen (mg/L ), and mean surface water temperature (ºC)
+-   Function: `water_quality_model`
 
--   Expected inputs: 365 daily observations per water year (October - September)
+Inputs:
 
--   Functions used: temperature_function, nutrients_function, and dissoxygen_function
+-   Monthly nutrient productivity classifications
 
--   Processing: Monthly classifications from each module combined to assign overall water quality risk
+-   Monthly dissolved oxygen classifications
 
-Outputs: water_quality_model - Monthly water quality risk classifications
+-   Monthly surface water temperature classifications
 
--   Low Risk - Oligotrophic, Excellent DO, Cool temperature
+-   Expected inputs generated from 365 daily observations per water year (October - September)
 
--   Moderate Risk - Mesotrophic, Moderate DO, Mild temperature
+Functions Used:
 
--   High Risk - Eutrophic, Stressful DO, Warm temperature
+-   `nutrient_function`
 
--   Extreme Risk - Hypereutrophic, Hypoxic DO, Hot temperature
+-   `dissoxygen_function`
 
-## Flow Chart / Diagram
+-   `temperature_function`
+
+Processing:
+
+-   Monthly classifications from each environmental module are combined within the final water quality model
+
+-   A for loop is used to apply the final classification model across each month of the water year
+
+Outputs:
+
+-   Final monthly lake water quality risk classifications
+
+-   Low Risk: Oligotrophic, Excellent DO, Cool Temperature
+
+-   Moderate Risk: Mesotrophic, Moderate DO, Mild Temperature
+
+-   High Risk: Eutrophic, Stressful DO, Warm Temperature
+
+-   Extreme Risk: Hypereutrophic, Hypoxic DO, Hot Temperature
+
+# Flow Chart / Diagram
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 library(here)
@@ -140,11 +204,8 @@ tagList(
 )
 ```
 
-<<<<<<< HEAD
-# Water Quality Model
-=======
-## Final Lake Water Quality Model
->>>>>>> ba36579152678c2578c385ef0278e308149615a6
+
+# Final Lake Water Quality Model
 
 ```{r}
 # Script for Final Water Quality Model
@@ -228,7 +289,9 @@ water_quality_results <- water_quality_data |>
 print(water_quality_results)
 ```
 
-## Lake Water Quality Visualization Module
+# Lake Water Quality Visualization Module
+
+## Graph 1
 
 ```{r}
 
@@ -288,6 +351,8 @@ wqm_classification_bargraph <- ggplot(
 
 wqm_classification_bargraph
 ```
+
+## Graph 2
 
 ```{r}
 
@@ -360,3 +425,12 @@ monthly_conditions_linegraph <- ggplot(visual_data_long,
 
 monthly_conditions_linegraph
 ```
+
+## Visualization 1: Monthly Final Water Quality Classification
+
+The final water quality classification model showed clear seasonal patterns in lake conditions throughout the water year based on the simulated environmental data. Winter months such as October, December, and January were generally classified as Low Risk because they had low nutrient concentrations, high dissolved oxygen levels, and cool water temperatures. Moderate Risk conditions occurred during transition periods with moderate nutrient concentrations and environmental conditions, while High Risk and Extreme Risk conditions became more common during warmer months with elevated nutrient concentrations and lower dissolved oxygen levels. August showed the most severe conditions due to the combination of hypereutrophic nutrient levels, hypoxic dissolved oxygen conditions, and extremely warm water temperatures.
+
+
+## Visualization 2: Monthly Environmental Conditions
+
+The environmental conditions visualization highlighted strong seasonal trends in nutrient concentrations, dissolved oxygen, and surface water temperatures across the simulated water year. Nutrient concentrations generally increased during spring and summer months, representing increased agricultural runoff and warmer seasonal conditions, while dissolved oxygen levels declined during warmer periods. Surface water temperatures steadily increased into summer and peaked during July and August. Together, these environmental patterns helped explain the changes observed in the final water quality risk classifications generated by the integrated lake model.
