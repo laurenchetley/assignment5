@@ -20,7 +20,7 @@
 #   "Hot"          = Boiling
 
 # classification water temperature
-temp_classification2 <- function(data) {
+temperature_function <- function(data) {
   water_year_order <- c("October", "November", "December",
                         "January", "February", "March",
                         "April", "May", "June",
