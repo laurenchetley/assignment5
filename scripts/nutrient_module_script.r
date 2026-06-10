@@ -1,40 +1,49 @@
 # Script for Nutrient Module
 
-# This function organizes daily phosphorus and nitrogen data
-# by water year month, calculates monthly mean nutrient levels,
-# and classifies lake productivity conditions based on nutrient
-# concentration thresholds.
+# This function classifies lake productivity conditions in a given water year.
+# Nutrient conditions are classified into four categories:
+# Oligotrophic, Mesotrophic, Eutrophic, and Hypereutrophic.
+# Mean calculations are based on daily phosphorus and nitrogen
+# measurements for each month of the water year.
 #
-# ---- Inputs: ----
-# nutrientdata:
-#   A dataframe containing:
+# ---- Input:----
+#    A dataframe containing:
 #   - date
 #   - phosphorus_added (mg/L)
 #   - nitrogen_added (mg/L)
 #
-# ---- Output: ----
-# A dataframe containing:
-#   - month
+# ---- Outputs: ----
+#   A dataframe containing:
 #   - monthly mean phosphorus concentrations
 #   - monthly mean nitrogen concentrations
 #   - nutrient productivity classification
 #
-# Possible classifications:
-#   "Oligotrophic"      = Low productivity
-#   "Mesotrophic"       = Medium productivity
-#   "Eutrophic"         = High productivity
-#   "Hypereutrophic"    = Very high productivity
+# Possible Classifications:
+#   "Oligotrophic"     = Low Productivity
+#   "Mesotrophic"      = Medium Productivity
+#   "Eutrophic"        = High Productivity
+#   "Hypereutrophic"   = Very High Productivity
 
 
-# nutrient classification function
-#' Title
+#' Classify Monthly Nutrient Conditions
 #'
-#' @param nutrientdata
+#' This function classifies lake productivity conditions in a given
+#' water year. Nutrient conditions are classified into four categories:
+#' Oligotrophic, Mesotrophic, Eutrophic, and Hypereutrophic. Mean
+#' calculations are based on daily phosphorus and nitrogen measurements
+#' for each month of the water year.
 #'
-#' @returns
+#' @param nutrientdata A dataframe containing daily phosphorus and
+#' nitrogen measurements with date, phosphorus_added, and
+#' nitrogen_added columns.
+#'
+#' @returns A dataframe containing monthly mean phosphorus
+#' concentrations, monthly mean nitrogen concentrations, and
+#' nutrient productivity classifications.
+#'
 #' @export
-#'
-#' @examples
+
+
 nutrient_function <- function(nutrientdata) {
 
   # put months in water year order

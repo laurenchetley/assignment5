@@ -20,6 +20,23 @@
 #   "Warm"         = Above Average
 #   "Hot"          = Boiling
 
+#' Classify Monthly Dissolved Oxygen Conditions
+#'
+#' This function classifies lake dissolved oxygen conditions in a given
+#' water year. Dissolved oxygen concentrations are classified into four
+#' categories: Hypoxic, Stressful, Moderate, and Excellent. Mean
+#' calculations are based on daily dissolved oxygen measurements for
+#' each month of the water year.
+#'
+#' @param dissoxygendata A dataframe containing daily dissolved oxygen
+#' measurements with date and dissolved oxygen concentration columns.
+#'
+#' @returns A dataframe containing monthly mean dissolved oxygen
+#' concentrations and dissolved oxygen classifications.
+#'
+#' @export
+
+
 # classification water temperature
 temperature_function <- function(data) {
 
