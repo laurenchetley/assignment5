@@ -35,7 +35,6 @@ The purpose of this program is to simulate and classify lake water quality condi
 
 The program uses simulated daily environmental observations, aggregates them into monthly means, and applies classification thresholds to evaluate changing lake conditions throughout the water year.
 
-
 ## Module Parameters
 
 ### Nutrients (Phosphorus and Nitrogen) Module
@@ -62,18 +61,17 @@ Outputs:
 
 Phosphorus = P and Nitrogen = N
 
--   Oligotrophic: Low Productivity  
+-   Oligotrophic: Low Productivity\
     P \< 0.01 mg/L, N \< 0.35 mg/L
 
--   Mesotrophic: Medium Productivity  
+-   Mesotrophic: Medium Productivity\
     P 0.01 - 0.03 mg/L, N 0.36 - 0.65 mg/L
 
--   Eutrophic: High Productivity  
+-   Eutrophic: High Productivity\
     P 0.03 - 0.10 mg/L, N 0.65 - 1.20 mg/L
 
--   Hypereutrophic: Very High Productivity  
+-   Hypereutrophic: Very High Productivity\
     P \> 0.10 mg/L, N \> 1.20 mg/L
-
 
 ### Dissolved Oxygen Module
 
@@ -103,7 +101,6 @@ Outputs:
 
 -   Hypoxic DO: \< 2 mg/L
 
-
 ### Surface Water Temperature Module
 
 -   Function: `temperature_function`
@@ -131,7 +128,6 @@ Outputs:
 -   Warm: Above Average 22ºC - 30ºC
 
 -   Hot: Boiling \> 30ºC
-
 
 ### Lake Water Quality Module Parameters
 
@@ -203,7 +199,6 @@ tagList(
   flowchart_img
 )
 ```
-
 
 # Final Lake Water Quality Model
 
@@ -429,7 +424,6 @@ monthly_conditions_linegraph
 ## Visualization 1: Monthly Final Water Quality Classification
 
 The final water quality classification model showed clear seasonal patterns in lake conditions throughout the water year based on the simulated environmental data. Winter months such as October, December, and January were generally classified as Low Risk because they had low nutrient concentrations, high dissolved oxygen levels, and cool water temperatures. Moderate Risk conditions occurred during transition periods with moderate nutrient concentrations and environmental conditions, while High Risk and Extreme Risk conditions became more common during warmer months with elevated nutrient concentrations and lower dissolved oxygen levels. August showed the most severe conditions due to the combination of hypereutrophic nutrient levels, hypoxic dissolved oxygen conditions, and extremely warm water temperatures.
-
 
 ## Visualization 2: Monthly Environmental Conditions
 
