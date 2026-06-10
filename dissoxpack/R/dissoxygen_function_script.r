@@ -25,13 +25,10 @@
 #' Moderate  = Moderate oxygen conditions, DO 5-8 mg/L
 #' Excellent = High oxygen conditions, DO > 8 mg/L
 #'
-#' @param
-#' A data frame containing daily dissolved oxygen records
+#' @param dissoxygendata A data frame containing daily dissolved oxygen observations.
+#' The data frame must include: date of observation and daily dissolved oxygen concentration in milligrams per liter (mg/L)
 #'
-#' @returns A data frame with one row per month containing the following columns:
-#' @export
-#'
-# loading in the libraries
+#' @returns A data frame summarizing monthly dissolved oxygen conditions, including the month, mean dissolved oxygen concentration (mg/L), and dissolved oxygen classification
 dissoxygen_function <- function(dissoxygendata) {
 
   # put them in order
@@ -61,5 +58,3 @@ dissoxygen_function <- function(dissoxygendata) {
 
   return(monthly_means)
 }
-
-

@@ -12,28 +12,28 @@ dates <- seq.Date(
 # Create dissolved oxygen data based on seasonal patterns
 dissoxygen_data <- data.frame(
   date = dates,
-  
+
   do_mg_l = c(
-    
+
     # Fall
-    runif(31, 7, 9),     # October: moderate to excellent
-    runif(30, 6, 8),     # November: moderate
-    runif(31, 8, 10),    # December: excellent
-    
+    stats::runif(31, 7, 9),     # October: moderate to excellent
+    stats::runif(30, 6, 8),     # November: moderate
+    stats::runif(31, 8, 10),    # December: excellent
+
     # Winter
-    runif(31, 9, 11),    # January: excellent
-    runif(28, 8, 10),    # February: excellent
-    runif(31, 6, 8),     # March: moderate
-    
+    stats::runif(31, 9, 11),    # January: excellent
+    stats::runif(28, 8, 10),    # February: excellent
+    stats::runif(31, 6, 8),     # March: moderate
+
     # Spring
-    runif(30, 5, 7),     # April: moderate
-    runif(31, 3, 5),     # May: stressful
-    runif(30, 2, 4),     # June: stressful
-    
+    stats::runif(30, 5, 7),     # April: moderate
+    stats::runif(31, 3, 5),     # May: stressful
+    stats::runif(30, 2, 4),     # June: stressful
+
     # Summer
-    runif(31, 1, 2),     # July: hypoxic
-    runif(31, 1, 2),     # August: hypoxic
-    runif(30, 3, 5)      # September: stressful
+    stats::runif(31, 1, 2),     # July: hypoxic
+    stats::runif(31, 1, 2),     # August: hypoxic
+    stats::runif(30, 3, 5)      # September: stressful
   )
 )
 
@@ -49,3 +49,4 @@ write.csv(
   here::here("data", "dissoxygen_data.csv"),
   row.names = FALSE
 )
+
